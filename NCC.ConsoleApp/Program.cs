@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace NCC.ConsoleApp
 {
@@ -18,6 +19,29 @@ namespace NCC.ConsoleApp
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void StringManipulation()
+        {
+            string a = "Hello";
+            string b = "NCC";
+            //string concatenation
+            var res = a + " " + b;
+
+            //string formatting
+            string templ = "{0} {1}";
+            var res1 = string.Format(templ, a, b);
+            Console.WriteLine("{0} {1}", a, b);
+
+            //string interpolation
+            var res3 = $"{a}! {b} {a}";
+
+            //stringbuilder
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+
+            var res4 = sb.ToString();
         }
 
         private static int DaysLoop()
