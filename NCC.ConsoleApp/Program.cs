@@ -6,9 +6,84 @@ namespace NCC.ConsoleApp
     {
         private static void Main()
         {
-            //DataTypes();
-            ConditionalStatements();
+            var res = "n";
+            do
+            {
+                //DataTypes();
+                //ConditionalStatements();
+                //LoopingStatements();
+                DaysLoop();
+                Console.WriteLine("Do you want to continue more(y/n)");
+                res = Console.ReadLine();
+            } while (res.ToUpper() == "Y");
+
             return;
+        }
+
+        private static int DaysLoop()
+        {
+            int i;
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            Console.WriteLine("\nUsing For loop");
+            for (i = 0; i < days.Length; i++)
+            {
+                if (i == 5)
+                {
+                    continue;
+                }
+                Console.WriteLine("Day => " + days[i]);
+            }
+
+            Console.WriteLine("\nUsing foreach");
+
+            foreach (var item in days)
+            {
+                Console.WriteLine("Day => " + item);
+            }
+
+            return i;
+        }
+
+        private static void LoopingStatements()
+        {
+            Console.WriteLine("Enter the number");
+            var num = Convert.ToInt32(Console.ReadLine());
+            //doing tasks repeatedly
+            //Initialization, Condition, Increament/Decrement
+            //unknown quantities
+            //known quantities
+            Console.WriteLine("Using while loop");
+            int i = 1;
+            while (i <= 10)
+            {
+                Console.WriteLine(num + " x " + i + " = " + num * i);
+                i++;
+            }
+            i = 1;
+            Console.WriteLine("Using Do While Loop");
+            do
+            {
+                Console.WriteLine(num + " x " + i + " = " + num * i);
+                i++;
+            } while (i <= 10);
+
+            Console.WriteLine("Using for loop");
+            for (i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(num + " x " + i + " = " + num * i);
+            }
+
+            //i = DaysLoop();
+            //infinite loop using for
+            //for (; ; )
+            //{
+            //}
+            //for (i=1;i<=10 ; )
+            //{
+            //}
+            //for (i=1;i>0;i++)
+            //{
+            //}
         }
 
         private static void ConditionalStatements()
