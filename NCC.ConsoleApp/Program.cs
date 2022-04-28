@@ -13,12 +13,22 @@ namespace NCC.ConsoleApp
                 //DataTypes();
                 //ConditionalStatements();
                 //LoopingStatements();
-                DaysLoop();
+                //DaysLoop();
+                ClassAndObjectExample();
+
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void ClassAndObjectExample()
+        {
+            ClassAndObject c1 = new ClassAndObject();
+            var c2 = new ClassAndObject(0);
+            c1.FName = "Bibek";
+            Console.WriteLine(c1.FName);
         }
 
         private static void StringManipulation()
