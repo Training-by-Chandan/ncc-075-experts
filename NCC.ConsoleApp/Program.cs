@@ -14,13 +14,28 @@ namespace NCC.ConsoleApp
                 //ConditionalStatements();
                 //LoopingStatements();
                 //DaysLoop();
-                ClassAndObjectExample();
+                //ClassAndObjectExample();
+                PropertiesExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void PropertiesExample()
+        {
+            MarksInfo mi = new MarksInfo();
+            mi.MathMarks = 50.75;
+            mi.ScienceMarks = 70.85;
+            Console.WriteLine($"Total => {mi.Total}");
+            Console.WriteLine($"Percentage => {mi.Percentage}");
+            Console.WriteLine($"Division => {mi.Division}");
+            mi.ScienceMarks = 40;
+            Console.WriteLine($"Total => {mi.Total}");
+            Console.WriteLine($"Percentage => {mi.Percentage}");
+            Console.WriteLine($"Division => {mi.Division}");
         }
 
         private static void ClassAndObjectExample()
