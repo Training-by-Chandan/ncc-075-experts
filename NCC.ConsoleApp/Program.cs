@@ -15,13 +15,26 @@ namespace NCC.ConsoleApp
                 //LoopingStatements();
                 //DaysLoop();
                 //ClassAndObjectExample();
-                PropertiesExample();
+                //PropertiesExample();
+                InheritenceExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void InheritenceExample()
+        {
+            LivingThings l1 = new LivingThings();
+            LivingThings l2 = new LivingThings(10);
+            Animal a1 = new Animal();
+            Animal a2 = new Animal(20);
+            Plants p1 = new Plants();
+            Plants p2 = new Plants(30);
+            Vertibrates v1 = new Vertibrates();
+            l1.PublicVariable = 10;
         }
 
         private static void PropertiesExample()
