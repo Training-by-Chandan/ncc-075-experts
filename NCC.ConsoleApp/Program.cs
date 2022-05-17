@@ -17,13 +17,48 @@ namespace NCC.ConsoleApp
                 //ClassAndObjectExample();
                 //PropertiesExample();
                 //InheritenceExample();
-                PolyMorhpismExample();
+                //PolyMorhpismExample();
+                EnumsExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void EnumsExample()
+        {
+            var day = Days.Monday;
+            var dayNum = (int)day;
+            day = (Days)5;
+
+            switch (day)
+            {
+                case Days.Sunday:
+                    break;
+
+                case Days.Monday:
+                    break;
+
+                case Days.Tuesday:
+                    break;
+
+                case Days.Wednesday:
+                    break;
+
+                case Days.Thursday:
+                    break;
+
+                case Days.Friday:
+                    break;
+
+                case Days.Saturday:
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private static void PolyMorhpismExample()
