@@ -16,13 +16,27 @@ namespace NCC.ConsoleApp
                 //DaysLoop();
                 //ClassAndObjectExample();
                 //PropertiesExample();
-                InheritenceExample();
+                //InheritenceExample();
+                PolyMorhpismExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void PolyMorhpismExample()
+        {
+            LivingThings l1 = new LivingThings();
+            LivingThings a1 = new Animal();
+            LivingThings p1 = new Plants();
+            LivingThings v1 = new Vertibrates();
+
+            l1.Eat();
+            a1.Eat();
+            p1.Eat();
+            v1.Eat();
         }
 
         private static void InheritenceExample()

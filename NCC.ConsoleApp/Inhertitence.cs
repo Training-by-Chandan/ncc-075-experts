@@ -17,6 +17,11 @@
         public LivingThings(int i)
         {
         }
+
+        public virtual void Eat()
+        {
+            Console.WriteLine("Living things can eat");
+        }
     }
 
     public class Animal : LivingThings
@@ -34,6 +39,11 @@
             PublicVariable = 20;
             protectedVariable = 25;
         }
+
+        public override void Eat()
+        {
+            Console.WriteLine("Animal can eat");
+        }
     }
 
     public class Plants : LivingThings
@@ -45,12 +55,22 @@
         public Plants(int i) : base(i)
         {
         }
+
+        public override void Eat()
+        {
+            Console.WriteLine("Plants can eat");
+        }
     }
 
     public class Vertibrates : Animal
     {
         public Vertibrates() : base()
         {
+        }
+
+        public override void Eat()
+        {
+            Console.WriteLine("Vertibrates can eat");
         }
     }
 
