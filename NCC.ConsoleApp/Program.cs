@@ -18,13 +18,53 @@ namespace NCC.ConsoleApp
                 //PropertiesExample();
                 //InheritenceExample();
                 //PolyMorhpismExample();
-                EnumsExample();
+                //EnumsExample();
+                //ShapesExample();
+                ShapesExampleV2();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void PartialExample()
+        {
+            ClassOne cOne = new ClassOne();
+            cOne.FunctionOne();
+            cOne.FunctionTwo();
+        }
+
+        private static void ShapesExampleV2()
+        {
+            Console.WriteLine("Enter the choice\n1. for Square\n2 for Rectangle");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var shape = AbstractShapeFactory(choice);
+            if (shape == null)
+            {
+                Console.WriteLine("Invalid choice");
+                return;
+            }
+            shape.GetInput();
+            shape.Area();
+            shape.Perimeter();
+        }
+
+        private static ShapeAbsV2 AbstractShapeFactory(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new SquareAbsV2();
+
+                case 2:
+                    return new RectangleAbsV2();
+
+                default:
+                    return null;
+            }
         }
 
         private static void ShapesExample()
