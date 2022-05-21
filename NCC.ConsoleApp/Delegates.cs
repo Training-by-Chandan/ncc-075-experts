@@ -7,6 +7,26 @@
 
         public void Run()
         {
+            CallingAnonymousFunction();
+
+            UnicasDelegate();
+
+            MulticastDelegate();
+        }
+
+        private void CallingAnonymousFunction()
+        {
+            MathOps m = new MathOps(Add);
+            m(10, 5);
+            m = (int x, int y) =>
+            {
+                Console.WriteLine($"Remainder = {x % y}");
+            };
+            m(10, 5);
+        }
+
+        private void UnicasDelegate()
+        {
             //unicast delegate
             MathOps m = new MathOps(Add);
             m(2, 3);
@@ -16,7 +36,10 @@
             m(2, 3);
             m = Divide;
             m(2, 3);
+        }
 
+        private void MulticastDelegate()
+        {
             //multicast delegate
             MathOps math = Add;
             math += Subtract;
