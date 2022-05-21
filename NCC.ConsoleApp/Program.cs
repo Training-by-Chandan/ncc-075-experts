@@ -20,8 +20,8 @@ namespace NCC.ConsoleApp
                 //PolyMorhpismExample();
                 //EnumsExample();
                 //ShapesExample();
-                ShapesExampleV2();
-
+                //ShapesExampleV2();
+                //PartialExample();
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
