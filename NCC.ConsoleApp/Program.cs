@@ -22,13 +22,20 @@ namespace NCC.ConsoleApp
                 //ShapesExample();
                 //ShapesExampleV2();
                 //PartialExample();
-                FunctionsExample();
+                //FunctionsExample();
+                DelegateExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void DelegateExample()
+        {
+            Delegates ds = new Delegates();
+            ds.Run();
         }
 
         private static void FunctionsExample()
