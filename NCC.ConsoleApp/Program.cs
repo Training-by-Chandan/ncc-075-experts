@@ -22,11 +22,27 @@ namespace NCC.ConsoleApp
                 //ShapesExample();
                 //ShapesExampleV2();
                 //PartialExample();
+                FunctionsExample();
+
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void FunctionsExample()
+        {
+            Functions f1 = new Functions();
+            f1.FunctionTwo(1, "");
+            f1.FunctionTwo(b: "", a: 1);
+            f1.FunctionThree(new int[] { 1, 2, 3, 4, 5 });
+            f1.FunctionFour(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+            int result = 0;
+            f1.FunctionSix(1, 2, out result);
+            f1.FunctionSeven(1, 2, out result);
+
+            f1.FunctionEight(2, 4, ref result);
         }
 
         private static void PartialExample()
