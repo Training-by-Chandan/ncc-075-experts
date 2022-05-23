@@ -5,6 +5,13 @@
     {
         public delegate void MathOps(int a, int b);
 
+        public event MathOps MathHandler;
+
+        public void Run(int a, int b)
+        {
+            MathHandler.Invoke(a, b);
+        }
+
         public void Run()
         {
             CallingAnonymousFunction();
