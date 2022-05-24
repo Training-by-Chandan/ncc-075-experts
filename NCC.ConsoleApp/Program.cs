@@ -23,13 +23,43 @@ namespace NCC.ConsoleApp
                 //ShapesExampleV2();
                 //PartialExample();
                 //FunctionsExample();
-                DelegateExample();
+                //DelegateExample();
+                CustomStackImplementation();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void CustomStackImplementation()
+        {
+            CustomStackTemplated<int> cs = new CustomStackTemplated<int>();
+            CustomStackTemplated<string> cs1 = new CustomStackTemplated<string>();
+            cs.Push(10);
+            cs.Push(3);
+            cs.Pop();
+            cs.Push(4);
+            cs.Push(7);
+            cs.Push(6);
+            cs.Push(9);
+            cs.Push(10);
+
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+        }
+
+        private static void CollectionsV1()
+        {
+            object[] objects = new object[] { 1, "2", '3', 2.5f, 5.6d };
+            objects[-1] = 10;
         }
 
         private static void DelegateExample()
