@@ -22,6 +22,11 @@
         {
             Console.WriteLine("Living things can eat");
         }
+
+        public static void TemplatedFunction<T, U, V>(T a, U b, V c)
+        {
+            //do something here
+        }
     }
 
     public class Animal : LivingThings

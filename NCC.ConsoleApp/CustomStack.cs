@@ -32,6 +32,38 @@
         }
     }
 
+    public class CustomStackObjects
+    {
+        private object[] _container = new object[5];
+        private int counter = -1;
+
+        public void Push(object item)
+        {
+            if (counter < 4)
+            {
+                counter++;
+                _container[counter] = item;
+            }
+            else
+            {
+                Console.WriteLine("Stack is full");
+            }
+        }
+
+        public void Pop()
+        {
+            if (counter >= 0)
+            {
+                _container[counter] = default(object);
+                counter--;
+            }
+            else
+            {
+                Console.WriteLine("Stack is empty");
+            }
+        }
+    }
+
     public class CustomStackString
     {
         private string[] _container = new string[5];
@@ -64,9 +96,15 @@
         }
     }
 
-    public class CustomStackTemplated<T>
+    public class CustomStackTemplated<T, U, X>
+        where T : ShapeAbs
+        where U : IShape
+        where X : LivingThings
     {
-        private T[] _container = new T[5];
+        public X[] _container3 = new X[5];
+        public T[] _container4 = new T[5];
+        public U[] _container2 = new U[5];
+        public T[] _container = new T[5];
         private int counter = -1;
 
         public void Push(T item)
