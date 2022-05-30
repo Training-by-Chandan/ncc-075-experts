@@ -25,12 +25,34 @@ namespace NCC.ConsoleApp
                 //FunctionsExample();
                 //DelegateExample();
                 //CustomStackImplementation();
-                ThreadsExample();
+                //ThreadsExample();
+                ExceptionHandlingExample();
+
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void ExceptionHandlingExample()
+        {
+            try
+            {
+                Test t1 = new Test();
+                t1.Add(2, 4);
+                Console.WriteLine("Enter a number");
+                var num = Convert.ToInt32(Console.ReadLine());
+                t1.Add(num, 5);
+            }
+            catch(ArgumentException ex)
+            {
+                Console.WriteLine("Argument Exception Occured");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void ThreadsExample()
