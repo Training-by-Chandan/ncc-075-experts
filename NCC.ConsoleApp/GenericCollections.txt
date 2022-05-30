@@ -1,0 +1,185 @@
+﻿> #reset 64
+Resetting execution engine.
+Loading context from 'CSharpInteractive.rsp'.
+> using System.Collections.Generic;
+> List<int> list = new List<int>();
+> list.Add(1);
+> list.Add("abc");
+(1,10): error CS1503: Argument 1: cannot convert from 'string' to 'int'
+> list.Add('C');
+> list.Add(9.5);
+(1,10): error CS1503: Argument 1: cannot convert from 'double' to 'int'
+> list.Add((int)9.5);
+> list
+List<int>(3) { 1, 67, 9 }
+> list.ToArray();
+> list.ToArray()
+int[3] { 1, 67, 9 }
+> 
+> 
+> var arr = list.ToArray();
+> list
+List<int>(3) { 1, 67, 9 }
+> list[0]
+1
+> list[0] = 12;
+> list
+List<int>(3) { 12, 67, 9 }
+> list[5]
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+  + System.ThrowHelper.ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+  + List<T>.get_Item(int)
+> 
+> 
+> 
+> SortedList<int> slint = new SortedList<int>();
+(1,1): error CS0305: Using the generic type 'SortedList<TKey, TValue>' requires 2 type arguments
+(1,29): error CS0305: Using the generic type 'SortedList<TKey, TValue>' requires 2 type arguments
+> SortedList<int, string> slint = new SortedList<int, string>();
+> slint.Add(10, "Ten");
+> slint
+SortedList<int, string>(1) { { 10, "Ten" } }
+> slint(7, "Seven");
+(1,1): error CS1955: Non-invocable member 'slint' cannot be used like a method.
+> slint.Add(7, "Seven");
+> slint
+SortedList<int, string>(2) { { 7, "Seven" }, { 10, "Ten" } }
+> SortedList<string, string> slStr = new SortedList<string, string>();
+> slStr.Add("1", "One");
+> slStr.Add("a", "Apple");
+> slStr
+SortedList<string, string>(2) { { "1", "One" }, { "a", "Apple" } }
+> slStr.Add("a1", "A-One");
+> slStr
+SortedList<string, string>(3) { { "1", "One" }, { "a", "Apple" }, { "a1", "A-One" } }
+> 
+> 
+> slStr.Add("a", "Apple");
+System.ArgumentException: An entry with the same key already exists.
+  + System.ThrowHelper.ThrowArgumentException(System.ExceptionResource)
+  + SortedList<TKey, TValue>.Add(TKey, TValue)
+> 
+> 
+> 
+> slStr[1];
+(1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be used as a statement
+(1,7): error CS1503: Argument 1: cannot convert from 'int' to 'string'
+> slint[1];
+(1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be used as a statement
+> slint[1]
+System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+  + System.ThrowHelper.ThrowKeyNotFoundException()
+  + SortedList<TKey, TValue>.get_Item(TKey)
+> slint
+SortedList<int, string>(2) { { 7, "Seven" }, { 10, "Ten" } }
+> slint[7]
+"Seven"
+> slStr["a"]
+"Apple"
+> 
+> 
+> 
+> HashSet<string> hsStr = new HashSet<string>();
+> hsStr.Add(1);
+(1,11): error CS1503: Argument 1: cannot convert from 'int' to 'string'
+> hsStr.Add("Apple")
+true
+> hsStr
+HashSet<string>(Count = 1) { "Apple" }
+> hsStr.Add("ball");
+> hsStr
+HashSet<string>(Count = 2) { "Apple", "ball" }
+> hsStr.Add("Apple")
+false
+> hsStr
+HashSet<string>(Count = 2) { "Apple", "ball" }
+> 
+> List<string> listStr = new List<string>();
+> listStr.Add("Apple")
+> listStr.Add("ball")
+> listStr.Add("Apple")
+> listStr
+List<string>(3) { "Apple", "ball", "Apple" }
+> Microsoft (R) Visual C# Interactive Compiler version 4.2.0-4.22252.24 ()
+Loading context from 'CSharpInteractive.rsp'.
+Type "#help" for more information.
+> using System.Collections;
+> ArrayList al = new ArrayList();
+> al.Add(1);
+> al.Add("abc");
+> al
+ArrayList(2) { 1, "abc" }
+> al.Add(54);
+> al.Add(45);
+> al 
+ArrayList(4) { 1, "abc", 54, 45 }
+> al.Capacity(3);
+(1,4): error CS1955: Non-invocable member 'ArrayList.Capacity' cannot be used like a method.
+> al.Capacity = 3;
+System.ArgumentOutOfRangeException: capacity was less than the current size.
+Parameter name: value
+  + System.Collections.ArrayList.set_Capacity(int)
+> al.Capacity=4
+4
+> al.Add(47);
+> al
+ArrayList(5) { 1, "abc", 54, 45, 47 }
+> al.Capacity
+8
+> al.Add(56);
+> al.Add(54);
+> al.Add(67);
+> al.Capacity
+8
+> al
+ArrayList(8) { 1, "abc", 54, 45, 47, 56, 54, 67 }
+> al.Add(45);
+> al.Capacity
+16
+> al.Remove("abc");
+> al
+ArrayList(8) { 1, 54, 45, 47, 56, 54, 67, 45 }
+> al.Remove(54);
+> al
+ArrayList(7) { 1, 45, 47, 56, 54, 67, 45 }
+> al.Capacity
+16
+> al.Capacity = 8;
+> al.RemoveAt(6);
+> al
+ArrayList(6) { 1, 45, 47, 56, 54, 67 }
+> al.Clear()
+> al
+ArrayList(0) { }
+> al.Add(10);
+> for (int i = 10; i <= 10; i++) {
+.     al.Add(3 * i);
+. }
+> al
+ArrayList(2) { 10, 30 }
+> for (int i = 0; i <= 10; i++)
+. {
+.     al.Add(3 * i);
+. }
+> al
+ArrayList(13) { 10, 30, 0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 }
+> al.Contains(15);
+> al.Contains(15)
+true
+> al.Contains(1)
+false
+> al[0] = "abc";
+> SortedList sl = new SortedList();
+> sl.Add(1);
+(1,4): error CS7036: There is no argument given that corresponds to the required formal parameter 'value' of 'SortedList.Add(object, object)'
+> sl.Add(1, "Sunday");
+> sl.Add(2, "Monday");
+> sl.Add(1, "Tuesday");
+System.ArgumentException: Item has already been added. Key in dictionary: '1'  Key being added: '1'
+  + System.Collections.SortedList.Add(object, object)
+> sl.Add("1", "Sunday");
+System.InvalidOperationException: Failed to compare two elements in the array.
+  + System.Array.BinarySearch(System.Array, int, int, object, System.Collections.IComparer)
+  + System.Collections.SortedList.Add(object, object)
+> 

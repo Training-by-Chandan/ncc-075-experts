@@ -1,0 +1,82 @@
+﻿Microsoft (R) Visual C# Interactive Compiler version 4.2.0-4.22252.24 ()
+Loading context from 'CSharpInteractive.rsp'.
+Type "#help" for more information.
+> using System.Collections;
+> ArrayList al = new ArrayList();
+> al.Add(1);
+> al.Add("abc");
+> al
+ArrayList(2) { 1, "abc" }
+> al.Add(54);
+> al.Add(45);
+> al 
+ArrayList(4) { 1, "abc", 54, 45 }
+> al.Capacity(3);
+(1,4): error CS1955: Non-invocable member 'ArrayList.Capacity' cannot be used like a method.
+> al.Capacity = 3;
+System.ArgumentOutOfRangeException: capacity was less than the current size.
+Parameter name: value
+  + System.Collections.ArrayList.set_Capacity(int)
+> al.Capacity=4
+4
+> al.Add(47);
+> al
+ArrayList(5) { 1, "abc", 54, 45, 47 }
+> al.Capacity
+8
+> al.Add(56);
+> al.Add(54);
+> al.Add(67);
+> al.Capacity
+8
+> al
+ArrayList(8) { 1, "abc", 54, 45, 47, 56, 54, 67 }
+> al.Add(45);
+> al.Capacity
+16
+> al.Remove("abc");
+> al
+ArrayList(8) { 1, 54, 45, 47, 56, 54, 67, 45 }
+> al.Remove(54);
+> al
+ArrayList(7) { 1, 45, 47, 56, 54, 67, 45 }
+> al.Capacity
+16
+> al.Capacity = 8;
+> al.RemoveAt(6);
+> al
+ArrayList(6) { 1, 45, 47, 56, 54, 67 }
+> al.Clear()
+> al
+ArrayList(0) { }
+> al.Add(10);
+> for (int i = 10; i <= 10; i++) {
+.     al.Add(3 * i);
+. }
+> al
+ArrayList(2) { 10, 30 }
+> for (int i = 0; i <= 10; i++)
+. {
+.     al.Add(3 * i);
+. }
+> al
+ArrayList(13) { 10, 30, 0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 }
+> al.Contains(15);
+> al.Contains(15)
+true
+> al.Contains(1)
+false
+> al[0] = "abc";
+> SortedList sl = new SortedList();
+> sl.Add(1);
+(1,4): error CS7036: There is no argument given that corresponds to the required formal parameter 'value' of 'SortedList.Add(object, object)'
+> sl.Add(1, "Sunday");
+> sl.Add(2, "Monday");
+> sl.Add(1, "Tuesday");
+System.ArgumentException: Item has already been added. Key in dictionary: '1'  Key being added: '1'
+  + System.Collections.SortedList.Add(object, object)
+> sl.Add("1", "Sunday");
+System.InvalidOperationException: Failed to compare two elements in the array.
+  + System.Array.BinarySearch(System.Array, int, int, object, System.Collections.IComparer)
+  + System.Collections.SortedList.Add(object, object)
+> 

@@ -1,0 +1,31 @@
+﻿> #reset 64
+Resetting execution engine.
+Loading context from 'CSharpInteractive.rsp'.
+> List<string> months = new List<string>() { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+> months
+List<string>(12) { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }
+> using System.Linq;
+> from m in months where m.StartsWith("J") select m
+Enumerable.WhereListIterator<string> { "January", "June", "July" }
+> from m in months orderby m select m
+OrderedEnumerable<string, string> { "April", "August", "December", "February", "January", "July", "June", "March", "May", "November", "October", "September" }
+> from m in months select m.ToUpper()
+Enumerable.WhereSelectListIterator<string, string> { "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER" }
+> from m in months select m.Substring(0, 3)
+Enumerable.WhereSelectListIterator<string, string> { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+> from m in months select new { Name=m, Length=m.Length, Abb=m.Substring(0,3) }
+Enumerable.WhereSelectListIterator<string, <>f__AnonymousType0#7<string, int, string>> { \{ Name = "January", Length = 7, Abb = "Jan" }, \{ Name = "February", Length = 8, Abb = "Feb" }, \{ Name = "March", Length = 5, Abb = "Mar" }, \{ Name = "April", Length = 5, Abb = "Apr" }, \{ Name = "May", Length = 3, Abb = "May" }, \{ Name = "June", Length = 4, Abb = "Jun" }, \{ Name = "July", Length = 4, Abb = "Jul" }, \{ Name = "August", Length = 6, Abb = "Aug" }, \{ Name = "September", Length = 9, Abb = "Sep" }, \{ Name = "October", Length = 7, Abb = "Oct" }, \{ Name = "November", Length = 8, Abb = "Nov" }, \{ Name = "December", Length = 8, Abb = "Dec" } }
+> 
+> 
+> 
+> months.Where(p=>p.StartsWith('J'))
+(1,30): error CS1503: Argument 1: cannot convert from 'char' to 'string'
+> months.Where(p => p.StartsWith("J"))
+Enumerable.WhereListIterator<string> { "January", "June", "July" }
+> months.Select(m=>m.ToUpper())
+Enumerable.WhereSelectListIterator<string, string> { "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER" }
+> months.Select(m=>m.Substring(0,3).ToUpper())
+Enumerable.WhereSelectListIterator<string, string> { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" }
+> months.Select(m=>new { Name=m, Length=m.Length, Abbvr=m.Substring(0,3) })
+Enumerable.WhereSelectListIterator<string, <>f__AnonymousType0#11<string, int, string>> { \{ Name = "January", Length = 7, Abbvr = "Jan" }, \{ Name = "February", Length = 8, Abbvr = "Feb" }, \{ Name = "March", Length = 5, Abbvr = "Mar" }, \{ Name = "April", Length = 5, Abbvr = "Apr" }, \{ Name = "May", Length = 3, Abbvr = "May" }, \{ Name = "June", Length = 4, Abbvr = "Jun" }, \{ Name = "July", Length = 4, Abbvr = "Jul" }, \{ Name = "August", Length = 6, Abbvr = "Aug" }, \{ Name = "September", Length = 9, Abbvr = "Sep" }, \{ Name = "October", Length = 7, Abbvr = "Oct" }, \{ Name = "November", Length = 8, Abbvr = "Nov" }, \{ Name = "December", Length = 8, Abbvr = "Dec" } }
+> 
