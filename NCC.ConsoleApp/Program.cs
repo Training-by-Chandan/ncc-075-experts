@@ -24,13 +24,19 @@ namespace NCC.ConsoleApp
                 //PartialExample();
                 //FunctionsExample();
                 //DelegateExample();
-                CustomStackImplementation();
-
+                //CustomStackImplementation();
+                ThreadsExample();
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             return;
+        }
+
+        private static void ThreadsExample()
+        {
+            ParallelProgramming pp = new ParallelProgramming();
+            pp.Run();
         }
 
         private static void CustomStackImplementation()
