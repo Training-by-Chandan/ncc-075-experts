@@ -9,7 +9,7 @@
 
             //Thread.Sleep(500);
             //Thread t1 = new Thread(FunctionOne);
-            //Thread t2 = new Thread(FunctionTwo);
+            Thread t2 = new Thread(FunctionTwo);
             //t1.Start();
             //t2.Start();
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 
+using ClassLib;
+
 namespace NCC.ConsoleApp
 {
     public class Program
@@ -39,15 +41,16 @@ namespace NCC.ConsoleApp
         {
             try
             {
+                MathOne m1 = new MathOne();
                 Test t1 = new Test();
                 t1.Add(2, 4);
                 Console.WriteLine("Enter a number");
                 var num = Convert.ToInt32(Console.ReadLine());
                 t1.Add(num, 5);
             }
-            catch(ArgumentException ex)
+            catch (CustomException ex)
             {
-                Console.WriteLine("Argument Exception Occured");
+                Console.WriteLine("Custom Exception Occured");
             }
             catch (Exception ex)
             {
