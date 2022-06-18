@@ -27,8 +27,8 @@ namespace NCC.ConsoleApp
                 //FunctionsExample();
                 //DelegateExample();
                 //CustomStackImplementation();
-                //ThreadsExample();
-                ExceptionHandlingExample();
+                ThreadsExample();
+                //ExceptionHandlingExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)");
                 res = Console.ReadLine();
@@ -107,6 +107,7 @@ namespace NCC.ConsoleApp
         private static void DelegateExample()
         {
             Delegates ds = new Delegates();
+            ds.Run();
             ds.MathHandler += Ds_MathHandler;
             ds.Run(2, 3);
             Delegates ds1 = new Delegates();

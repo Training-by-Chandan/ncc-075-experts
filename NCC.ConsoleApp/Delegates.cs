@@ -5,6 +5,8 @@
     {
         public delegate void MathOps(int a, int b);
 
+        public delegate void Accelerate();
+
         public event MathOps MathHandler;
 
         public void Run(int a, int b)
@@ -14,7 +16,8 @@
 
         public void Run()
         {
-            CallingAnonymousFunction();
+            CarRun();
+            // CallingAnonymousFunction();
 
             UnicasDelegate();
 
@@ -30,6 +33,38 @@
                 Console.WriteLine($"Remainder = {x % y}");
             };
             m(10, 5);
+        }
+
+        private void CarRun()
+        {
+            Accelerate a = Neutral;
+            a();
+            a += Reverse;
+            a();
+            a += GearOne;
+            a();
+            a += GearSix;
+            a();
+        }
+
+        private void Neutral()
+        {
+            Console.WriteLine("Car is in neutral cannot run");
+        }
+
+        private void GearOne()
+        {
+            Console.WriteLine("Car is moving too slow");
+        }
+
+        private void Reverse()
+        {
+            Console.WriteLine("Car ta pachadi gayo hai");
+        }
+
+        private void GearSix()
+        {
+            Console.WriteLine("Dhoom machale");
         }
 
         private void UnicasDelegate()
