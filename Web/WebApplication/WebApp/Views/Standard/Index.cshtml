@@ -1,0 +1,33 @@
+﻿@model List<Standards>
+
+    <div class="row">
+        <a href="/standard/create" class="btn btn-outline-success">Create</a>
+    </div>
+    <div class="row">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    <a href="" class="btn btn-primary">Edit</a>
+                    <a href="" class="btn btn-danger">Delete</a>
+                    <a href="" class="btn btn-success">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    </div>
