@@ -1,33 +1,47 @@
 ﻿@model List<Standards>
 
+@if (User.Identity.IsAuthenticated)
+{
     <div class="row">
         <a href="/standard/create" class="btn btn-outline-success">Create</a>
     </div>
-    <div class="row">
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+}
+<div class="row">
+    <table class="table">
+        <thead>
             <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>
-                    <a href="" class="btn btn-primary">Edit</a>
-                    <a href="" class="btn btn-danger">Delete</a>
-                    <a href="" class="btn btn-success">Details</a>
-                </td>
+                <th>S. No.</th>
+                <th>Name</th>
+                <th>Description</th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <th>Action</th>
+                }
             </tr>
-        }
-    </tbody>
-</table>
-    </div>
+        </thead>
+        <tbody>
+            @{
+                int sno = 1;
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@sno</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <td>
+                            <a href="/standard/edit/@item.Id" class="btn btn-primary">Edit</a>
+                            <a href="/standard/delete/@item.Id" class="btn btn-danger">Delete</a>
+                            <a href="/standard/details/@item.Id" class="btn btn-success">Details</a>
+                        </td>
+                    }
+                @{
+                    sno++;
+                }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

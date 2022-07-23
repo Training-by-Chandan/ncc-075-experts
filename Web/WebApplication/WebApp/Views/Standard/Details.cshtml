@@ -1,0 +1,28 @@
+﻿@model Standards
+
+@if(Model==null)
+{
+    <div class="alert alert-danger">
+        <span>No Records Found</span>
+    </div>
+}
+else
+{
+    <div class="row">
+   
+   
+       
+        <div class="form-group">
+            <label class="control-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name" disabled />
+        </div>
+            <div class="form-group">
+            <label class="control-label">Description</label>
+            <textarea asp-for="Description" class="form-control" disabled></textarea>
+        </div>
+        &nbsp;
+
+  
+</div>
+}
+                <a href="/standard/index" class="btn btn-success">Back to Index</a>

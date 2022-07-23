@@ -1,0 +1,31 @@
+﻿@model Standards
+
+                <a href="/standard/index" class="btn btn-success">Back to Index</a>
+@if(Model==null)
+{
+    <div class="alert alert-danger">
+        <span>No Records Found</span>
+    </div>
+}
+else
+{
+    <div class="row">
+        <h1>Are you sure you want to delete this?</h1>
+    <form method="post" action="/standard/delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label class="control-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name" disabled />
+        </div>
+            <div class="form-group">
+            <label class="control-label">Description</label>
+            <textarea asp-for="Description" class="form-control" disabled></textarea>
+        </div>
+        &nbsp;
+            <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Delete" />
+          <input type="reset" class="btn btn-danger" value="Reset" />
+        </div>
+    </form>
+</div>
+}
