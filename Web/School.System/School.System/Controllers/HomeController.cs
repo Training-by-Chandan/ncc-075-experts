@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using School.System.Models;
+using School.System.Services;
+using School.System.ViewModels;
 using System.Diagnostics;
 
 namespace School.System.Controllers
@@ -7,10 +8,15 @@ namespace School.System.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IStudentService studentService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            ILogger<HomeController> logger,
+            IStudentService studentService
+            )
         {
             _logger = logger;
+            this.studentService = studentService;
         }
 
         public IActionResult Index()

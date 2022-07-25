@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using School.System.Data;
+using School.System.Repository;
+using School.System.Services;
 
 namespace School.System
 {
@@ -18,6 +20,9 @@ namespace School.System
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            DependenciesConfig(builder.Services);
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -48,6 +53,21 @@ namespace School.System
             app.MapRazorPages();
 
             app.Run();
+        }
+
+        private static void DependenciesConfig(IServiceCollection services)
+        {
+            #region Repositories
+
+            services.AddTransient<IStudentRepository, StudentRepository>();
+
+            #endregion Repositories
+
+            #region Services
+
+            services.AddTransient<IStudentService, StudentService>();
+
+            #endregion Services
         }
     }
 }
