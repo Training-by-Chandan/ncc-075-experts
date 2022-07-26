@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-ACD.School-4BEBAFF5-E224-4A8E-A6CA-8640DEEB30D0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ACD.School.Data\ACD.School.Data.csproj" />
+    <ProjectReference Include="..\ACD.School.Models\ACD.School.Models.csproj" />
+    <ProjectReference Include="..\ACD.School.Repository\ACD.School.Repository.csproj" />
+    <ProjectReference Include="..\ACD.School.Services\ACD.School.Services.csproj" />
+  </ItemGroup>
+
+</Project>
