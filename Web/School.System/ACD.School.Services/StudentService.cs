@@ -12,6 +12,10 @@ namespace ACD.School.Services
     public interface IStudentService
     {
         (bool, string) Create(StudentCreateViewModel model);
+
+        (bool, string) Delete(int id);
+
+        (bool, string) HardDelete(int id);
     }
 
     public class StudentService : IStudentService
@@ -38,6 +42,41 @@ namespace ACD.School.Services
                 };
 
                 return studentRepository.Create(student);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Soft delete
+        /// </summary>
+        /// <returns></returns>
+        public (bool, string) Delete(int id)
+        {
+            try
+            {
+                var existing = studentRepository.GetById(id);
+                if (existing == null) return (false, $"Record with {id} not found");
+
+                existing.IsDeleted = true;
+                return studentRepository.Edit(existing);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public (bool, string) HardDelete(int id)
+        {
+            try
+            {
+                var existing = studentRepository.GetById(id);
+                if (existing == null) return (false, $"Record with {id} not found");
+
+                return studentRepository.Delete(existing);
             }
             catch (Exception ex)
             {

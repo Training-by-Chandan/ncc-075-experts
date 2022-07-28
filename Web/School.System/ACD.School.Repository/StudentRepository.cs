@@ -12,6 +12,10 @@ namespace ACD.School.Repository
     {
         (bool, string) Create(Student model);
 
+        (bool, string) Delete(Student model);
+
+        (bool, string) Edit(Student model);
+
         IQueryable<Student> GetAll();
 
         Student GetById(int id);
@@ -30,12 +34,15 @@ namespace ACD.School.Repository
 
         public IQueryable<Student> GetAll()
         {
-            return db.Students;
+            return db.Students.Where(p => !p.IsDeleted);
         }
 
         public Student GetById(int id)
         {
-            return db.Students.Find(id);
+            var existing = db.Students.Find(id);
+            if (existing == null || existing.IsDeleted) return null;
+
+            return existing;
         }
 
         public (bool, string) Create(Student model)
@@ -46,6 +53,36 @@ namespace ACD.School.Repository
                 db.SaveChanges();
 
                 return (true, "Added Successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public (bool, string) Edit(Student model)
+        {
+            try
+            {
+                db.Students.Update(model);
+                db.SaveChanges();
+
+                return (true, "Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public (bool, string) Delete(Student model)
+        {
+            try
+            {
+                db.Students.Remove(model);
+                db.SaveChanges();
+
+                return (true, "Deleted Successfully");
             }
             catch (Exception ex)
             {

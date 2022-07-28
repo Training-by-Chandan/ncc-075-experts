@@ -41,18 +41,17 @@ namespace ACD.School.Controllers
             {
                 var res = studentService.Create(model);
                 if (res.Item1)
-                {
                     return RedirectToAction("Index");
-                }
-                else
-                {
-                    return View();
-                }
             }
-            else
-            {
-                return View();
-            }
+            return View();
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var res = studentService.Delete(id);
+            if (res.Item1) return RedirectToAction("Index");
+
+            return View("Error");
         }
     }
 }
