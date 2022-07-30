@@ -15,6 +15,8 @@ namespace ACD.School.Services
 
         (bool, string) Delete(int id);
 
+        List<StudentViewModel> GetAll();
+
         (bool, string) HardDelete(int id);
     }
 
@@ -82,6 +84,21 @@ namespace ACD.School.Services
             {
                 return (false, ex.Message);
             }
+        }
+
+        public List<StudentViewModel> GetAll()
+        {
+            var data = studentRepository.GetAll();
+
+            var ret = data.Select(p => new StudentViewModel()
+            {
+                Id = p.Id,
+                Email = p.Email,
+                Name = p.Name,
+                CreatedDate = p.CreatedDate,
+                PhoneNumber = p.PhoneNumber
+            });
+            return ret.ToList();
         }
     }
 }

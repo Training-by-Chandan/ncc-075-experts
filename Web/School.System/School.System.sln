@@ -17,15 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "New Project", "New Project"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Old Project", "Old Project", "{479FD3FD-D003-408A-BF18-E6C3C53A0C53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACD.School", "ACD.School\ACD.School.csproj", "{FB941091-1CEC-4286-9DA2-F1B11F296217}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACD.School", "ACD.School\ACD.School.csproj", "{FB941091-1CEC-4286-9DA2-F1B11F296217}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACD.School.Models", "ACD.School.Models\ACD.School.Models.csproj", "{60E151C0-4E77-447D-9271-5CB47780A6CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACD.School.Models", "ACD.School.Models\ACD.School.Models.csproj", "{60E151C0-4E77-447D-9271-5CB47780A6CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACD.School.Data", "ACD.School.Data\ACD.School.Data.csproj", "{0BC6AC85-8D0E-4331-8CF1-ABA3722AA6DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACD.School.Data", "ACD.School.Data\ACD.School.Data.csproj", "{0BC6AC85-8D0E-4331-8CF1-ABA3722AA6DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACD.School.Repository", "ACD.School.Repository\ACD.School.Repository.csproj", "{0C56535D-F3AE-4C87-BFE8-0DB9F802B768}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACD.School.Repository", "ACD.School.Repository\ACD.School.Repository.csproj", "{0C56535D-F3AE-4C87-BFE8-0DB9F802B768}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACD.School.Services", "ACD.School.Services\ACD.School.Services.csproj", "{6A98331F-EB47-415C-B682-7C0E3B55E2F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACD.School.Services", "ACD.School.Services\ACD.School.Services.csproj", "{6A98331F-EB47-415C-B682-7C0E3B55E2F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACD.School.WebApi", "ACD.School.WebApi\ACD.School.WebApi.csproj", "{3F9B0834-AC0F-49EF-BF81-D8C0B3E3D131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{6A98331F-EB47-415C-B682-7C0E3B55E2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A98331F-EB47-415C-B682-7C0E3B55E2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A98331F-EB47-415C-B682-7C0E3B55E2F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F9B0834-AC0F-49EF-BF81-D8C0B3E3D131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9B0834-AC0F-49EF-BF81-D8C0B3E3D131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9B0834-AC0F-49EF-BF81-D8C0B3E3D131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9B0834-AC0F-49EF-BF81-D8C0B3E3D131}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +94,7 @@ Global
 		{0BC6AC85-8D0E-4331-8CF1-ABA3722AA6DE} = {37D2AF28-446E-490F-B039-7263E225FC5A}
 		{0C56535D-F3AE-4C87-BFE8-0DB9F802B768} = {37D2AF28-446E-490F-B039-7263E225FC5A}
 		{6A98331F-EB47-415C-B682-7C0E3B55E2F5} = {37D2AF28-446E-490F-B039-7263E225FC5A}
+		{3F9B0834-AC0F-49EF-BF81-D8C0B3E3D131} = {37D2AF28-446E-490F-B039-7263E225FC5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3F2DC7A-A36C-4242-9ED4-36B3959D178F}
