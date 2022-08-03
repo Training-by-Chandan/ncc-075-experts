@@ -19,8 +19,15 @@ namespace ACD.School.Controllers
             this.studentService = studentService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string name = "default")
         {
+            Response.Cookies.Append("name", name, new CookieOptions()
+            {
+                Expires = DateTime.Now.AddSeconds(30),
+            });
+
+            HttpContext.Session.SetString("college", "Academia");
+
             return View();
         }
 
@@ -35,7 +42,8 @@ namespace ACD.School.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult CreateStudent(StudentCreateViewModel model)
+        [HttpPost]
+        public IActionResult CreateStudent([FromBody] StudentCreateViewModel model, [FromQuery] string query, [FromHeader] string name)
         {
             if (ModelState.IsValid)
             {

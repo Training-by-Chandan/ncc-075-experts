@@ -5,3 +5,10 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+@{
+    var college = Context.Session.GetString("college");
+}
+
+<h1>Session Name : College </h1>
+<h1>Session Value : @college </h1>
